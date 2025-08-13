@@ -1,0 +1,197 @@
+[
+  {
+    "formula": "La2.6Ba3.4Cu6O14.06",
+    "Tc (K)": 26.0,
+    "cluster": 31
+  },
+  {
+    "formula": "La2.4Ba3.6Cu6O14.01",
+    "Tc (K)": 39.0,
+    "cluster": 31
+  },
+  {
+    "formula": "La2.2Ba3.8Cu6O13.86",
+    "Tc (K)": 52.0,
+    "cluster": 31
+  },
+  {
+    "formula": "La2Ba4Cu6O13.8",
+    "Tc (K)": 65.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu6O13.9",
+    "Tc (K)": 93.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O15",
+    "Tc (K)": 93.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.98",
+    "Tc (K)": 88.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.92",
+    "Tc (K)": 82.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.85",
+    "Tc (K)": 78.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.78",
+    "Tc (K)": 70.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.68",
+    "Tc (K)": 60.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.46",
+    "Tc (K)": 46.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.38",
+    "Tc (K)": 50.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.16",
+    "Tc (K)": 34.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.04",
+    "Tc (K)": 36.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14",
+    "Tc (K)": 30.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O15.09",
+    "Tc (K)": 89.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O15.03",
+    "Tc (K)": 87.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.53",
+    "Tc (K)": 60.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.13",
+    "Tc (K)": 37.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Dy2Ba4Cu7O14.61",
+    "Tc (K)": 29.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Nd2Ba4Cu7O15.38",
+    "Tc (K)": 35.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Nd2Ba4Cu7O14.525",
+    "Tc (K)": 66.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Eu2Ba4Cu7O14.671",
+    "Tc (K)": 75.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Tm2Ba4Cu7O14.732",
+    "Tc (K)": 88.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O15.1",
+    "Tc (K)": 92.8,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.97",
+    "Tc (K)": 93.1,
+    "cluster": 31
+  },
+  {
+    "formula": "Er2Ba4Cu7O14.92",
+    "Tc (K)": 89.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.33",
+    "Tc (K)": 22.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.6",
+    "Tc (K)": 41.2,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.81",
+    "Tc (K)": 54.1,
+    "cluster": 31
+  },
+  {
+    "formula": "Y2Ba4Cu7O14.95",
+    "Tc (K)": 67.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Ba2Ca3Cu4O10.35",
+    "Tc (K)": 116.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Y3Ba5Cu8O18",
+    "Tc (K)": 100.1,
+    "cluster": 31
+  },
+  {
+    "formula": "Pr2Ba4Cu7O14.06",
+    "Tc (K)": 30.5,
+    "cluster": 31
+  },
+  {
+    "formula": "Pr2Ba4Cu7O14.3",
+    "Tc (K)": 21.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Pr2Ba4Cu7O14.36",
+    "Tc (K)": 20.6,
+    "cluster": 31
+  },
+  {
+    "formula": "Pr2Ba4Cu7O14.21",
+    "Tc (K)": 23.0,
+    "cluster": 31
+  },
+  {
+    "formula": "Pr2Ba4Cu7O14.44",
+    "Tc (K)": 20.75,
+    "cluster": 31
+  }
+]

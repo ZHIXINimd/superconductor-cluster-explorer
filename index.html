@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Superconductor Cluster Explorer (JSON)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.26.0/plotly.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.2/marked.min.js"></script>
+  <style>
+    :root{
+      --card:#fff; --ink:#222; --muted:#6b7280; --line:#e5e7eb;
+      --brand:#667eea; --brand2:#764ba2; --shadow:0 4px 12px rgba(0,0,0,.06);
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial;
+         color:var(--ink); background:#f7f8fb; cursor:pointer;}
+
+    .header{padding:20px 24px; color:#fff; background:linear-gradient(135deg,var(--brand) 0%,var(--brand2) 100%); box-shadow:var(--shadow)}
+    .header h1{margin:0 0 6px; font-size:22px; font-weight:700}
+    .header p{margin:0; opacity:.95}
+
+    .page{display:grid; grid-template-rows:auto 1fr; min-height:calc(100% - 76px)}
+
+    /* Top area: bar (left) vs scatter (right) */
+    .top-container{
+      display:grid; grid-template-columns:420px 1fr; gap:12px; padding:12px;
+      min-height:520px;
+    }
+    .left-panel,.panel-scatter{
+      background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:12px; height:100%; display:flex; flex-direction:column; position:relative
+    }
+
+    /* Reset button NOW on bar-chart panel (top-right) */
+    .left-panel .reset-btn{
+      position:absolute; top:10px; right:10px;
+      background:#fff; border:1px solid var(--line); border-radius:10px; padding:.35rem .65rem;
+      font-size:.85rem; z-index:9999; box-shadow:var(--shadow); display:block !important;
+    }
+
+    .metric-tabs{display:flex; gap:8px; margin-bottom:8px; flex-wrap:wrap; padding-right:80px}
+    .metric-tabs button{border:1px solid var(--line); background:#fafbff; padding:6px 10px; border-radius:8px; font-size:12px; color:var(--muted)}
+    .metric-tabs button.active{background:#eef2ff; color:#334155; border-color:#c7d2fe; font-weight:600}
+    .plot-container{flex:1; min-height:0}
+
+    /* Bottom: table (left) + analysis (right) */
+    .bottom-container{
+      display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:12px;
+      /* no fixed height here; we give exact 50vh to inner scroll areas instead */
+    }
+    .card{
+      background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:12px; display:flex; flex-direction:column; min-height:0;
+    }
+    .card h3{margin:0 0 8px; font-size:16px; font-weight:700; color:#111827}
+    .toolbar{display:flex; gap:8px; align-items:center; margin-bottom:8px}
+    .toolbar .hint{color:var(--muted); font-size:12px}
+
+    /* Equal-height scroll areas (exactly half viewport height) */
+    .table-wrap, .md{
+      height:50vh; overflow:auto; border:1px solid var(--line); border-radius:10px; background:#fff;
+    }
+
+    /* Table styling */
+    table{width:100%; border-collapse:collapse; font-size:12.5px; background:#fff}
+    th,td{border-bottom:1px solid var(--line); padding:6px 8px; text-align:left; white-space:nowrap}
+    th{position:sticky; top:0; background:#f9fafb; z-index:1}
+
+    /* Markdown styling */
+    .md{padding:12px}
+    .md h1,.md h2,.md h3{margin:.4em 0 .25em; line-height:1.2}
+    .md h1{font-size:18px} .md h2{font-size:16px} .md h3{font-size:14px}
+    .md p{margin:.4em 0} .md ul{margin:.4em 0 .4em 1.2em}
+    .md table{border-collapse:collapse; width:100%; font-size:12.5px}
+    .md th,.md td{border:1px solid var(--line); padding:6px 8px}
+    .md blockquote{border-left:3px solid #e5e7eb; margin:.4em 0; padding:.2em .8em; color:#4b5563; background:#fafafa}
+
+    .no-select{user-select:none}
+
+    @media (max-width:1100px){
+      .top-container{grid-template-columns:1fr}
+      .bottom-container{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="header no-select">
+    <h1>Superconductor Cluster Explorer</h1>
+    <p>Interactive analysis of UMAP + HDBSCAN results</p>
+  </div>
+
+  <div class="page">
+    <div class="top-container">
+      <!-- LEFT: BAR CHART (with Reset button now) -->
+      <div class="left-panel no-select">
+        <button id="reset-btn" class="reset-btn" title="Reset view">Reset</button>
+        <div class="metric-tabs">
+          <button class="active" data-metric="count">Count</button>
+          <button data-metric="avg">Avg Tc</button>
+          <button data-metric="max">Max Tc</button>
+        </div>
+        <div id="stats-plot" class="plot-container"></div>
+      </div>
+
+      <!-- RIGHT: SCATTER -->
+      <div class="panel-scatter no-select">
+        <div id="umap-plot" class="plot-container"></div>
+      </div>
+    </div>
+
+    <div class="bottom-container">
+      <div class="card">
+        <div class="toolbar">
+          <h3 id="cluster-table-title">Select a cluster to view compounds</h3>
+          <button id="cluster-table-download" style="display:none;">Download JSON</button>
+        </div>
+        <div id="cluster-table" class="table-wrap"></div>
+      </div>
+
+      <div class="card">
+        <div class="toolbar">
+          <h3 id="analysis-title">Cluster analysis</h3>
+          <span class="hint">Markdown rendered with GitHub-style</span>
+        </div>
+        <div id="analysis-content" class="md">
+          <p>Select via <strong>bar chart (single-click)</strong>, <strong>legend (single/double-click)</strong>, or <strong>point (double-click)</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ===== Globals =====
+    let materialsData = [];
+    let umapData = [];
+    let clusterStats = {};
+    let statsClustersOrder = [];
+    let selectedCluster = null;
+    let isolatedClusterId = null;
+    let pulsingClusterId = null;
+    let pulseTimer = null;
+    const baseSizesByCluster = new Map();
+    const COLOR_ROYAL = '#4169E1';
+    const COLOR_SEL = 'darkorange';
+    const COLOR_NOISE = '#D3D3D3';
+
+    const el = id => document.getElementById(id);
+    const renderMarkdown = md => marked.parse(md || '');
+
+    async function loadJSON(path){
+      const r = await fetch(path);
+      if(!r.ok) throw new Error(`Fetch failed: ${path} (${r.status})`);
+      return await r.json();
+    }
+    async function fetchText(path){
+      const r = await fetch(path);
+      if(!r.ok) throw new Error(`Fetch failed: ${path}`);
+      return await r.text();
+    }
+
+    function normalizeMaterialsJSON(raw){
+      let arr = Array.isArray(raw) ? raw : (raw.materials || raw.data || raw.rows || []);
+      const norm = [];
+      for(const row of arr){
+        const formula = row?.formula ?? row?.Formula ?? row?.comp ?? row?.material ?? '';
+        let tc = row?.["Tc (K)"]; if(tc==null) tc = row?.Tc; if(tc==null) tc = row?.tc; if(tc==null) tc = row?.tc_K; if(tc==null) tc = row?.tc_k;
+        const cluster = row?.cluster ?? row?.cluster_id ?? row?.clusterID ?? row?.label ?? null;
+        norm.push({ formula: String(formula), "Tc (K)": (tc!=null? Number(tc) : NaN), cluster: (cluster!=null? Number(cluster) : null) });
+      }
+      return norm;
+    }
+    function normalizeCoordsJSON(raw){
+      let arr = Array.isArray(raw) ? raw : (raw.coords || raw.embedding || []);
+      if(!Array.isArray(arr)) arr = [];
+      if(arr.length && Array.isArray(arr[0])){
+        return arr.map(p => ({ x: Number(p[0]), y: Number(p[1]) }));
+      }
+      return arr.map(p => ({ x: Number(p.x), y: Number(p.y) }));
+    }
+
+    function computeClusterStats(){
+      const by = {};
+      for(const r of materialsData){
+        const c = r.cluster; if(c==null) continue;
+        if(!by[c]) by[c]={count:0, tcs:[]};
+        by[c].count++;
+        const t = Number(r["Tc (K)"]);
+        if(isFinite(t)) by[c].tcs.push(t);
+      }
+      clusterStats = {};
+      for(const k of Object.keys(by)){
+        const c = Number(k), arr = by[k].tcs;
+        clusterStats[c] = {
+          count: by[k].count,
+          avgTc: arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : NaN,
+          maxTc: arr.length ? Math.max(...arr) : NaN
+        };
+      }
+    }
+
+    function wireMetricTabs(){
+      document.querySelectorAll('.metric-tabs button').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          document.querySelectorAll('.metric-tabs button').forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+          createStatsPlot(btn.dataset.metric);
+          if(selectedCluster!=null) highlightBar(selectedCluster);
+        });
+      });
+    }
+
+    function createStatsPlot(metric){
+      const plotId = 'stats-plot';
+      const clusters = Object.keys(clusterStats).map(Number).sort((a,b)=>a-b);
+      statsClustersOrder = clusters.slice();
+
+      let y, title, yTitle;
+      if(metric==='avg'){ y = clusters.map(c=>clusterStats[c].avgTc); title='Average Tc per Cluster'; yTitle='Average Tc (K)'; }
+      else if(metric==='max'){ y = clusters.map(c=>clusterStats[c].maxTc); title='Maximum Tc per Cluster'; yTitle='Maximum Tc (K)'; }
+      else { y = clusters.map(c=>clusterStats[c].count); title='Materials Count per Cluster'; yTitle='Number of Materials'; }
+
+      const colors = clusters.map(()=> COLOR_ROYAL);
+
+      const trace = { x: clusters, y, type:'bar', marker:{ color: colors }, name:'Clusters' };
+      const layout = {
+        title, font:{size:12},
+        xaxis:{ title:'Cluster ID' },
+        yaxis:{ title: yTitle },
+        margin:{ t:36, l:42, r:18, b:40 },
+        showlegend:false,
+        height: null
+      };
+      Plotly.newPlot(plotId, [trace], layout, {responsive:true});
+
+      // single-click → select & isolate
+      el(plotId).on('plotly_click', ev=>{
+        const cid = ev.points?.[0]?.x;
+        if(cid===undefined) return;
+        selectCluster(cid, { isolate:true });
+      });
+    }
+
+    function highlightBar(cid){
+      const gd = el('stats-plot');
+      const clusters = statsClustersOrder;
+      if(!gd?.data?.length) return;
+      const colors = clusters.map(()=> COLOR_ROYAL);
+      const idx = clusters.indexOf(cid);
+      if(idx>=0) colors[idx] = COLOR_SEL;
+      Plotly.restyle(gd, {'marker.color':[colors]}, [0]);
+    }
+
+    function lockAxesForPulse(gd){
+  // Use full layout ranges (reflect current view incl. zoom/pan)
+  const xr = (gd._fullLayout?.xaxis?.range || gd.layout?.xaxis?.range || []).slice();
+  const yr = (gd._fullLayout?.yaxis?.range || gd.layout?.yaxis?.range || []).slice();
+  if (!xr.length || !yr.length) return; // nothing to lock yet
+
+  // Remember prior autorange state so we can restore
+  gd._axisLockForPulse = {
+    wasAutoX: gd.layout?.xaxis?.autorange !== false,
+    wasAutoY: gd.layout?.yaxis?.autorange !== false,
+    xr, yr
+  };
+
+  Plotly.relayout(gd, {
+    'xaxis.autorange': false,
+    'yaxis.autorange': false,
+    'xaxis.range': xr,
+    'yaxis.range': yr
+  });
+}
+
+function unlockAxesForPulse(gd){
+  const s = gd._axisLockForPulse;
+  if(!s) return;
+  // Restore autorange flags, but do NOT force a new range;
+  // this keeps the user’s current zoom/pan.
+  Plotly.relayout(gd, {
+    'xaxis.autorange': s.wasAutoX,
+    'yaxis.autorange': s.wasAutoY
+  });
+  gd._axisLockForPulse = null;
+}
+
+    function createUmapPlot(){
+      const plotId='umap-plot';
+      const allClusters = [...new Set(materialsData.map(d=>d.cluster))].filter(v=>v!==null).sort((a,b)=>a-b);
+      const palette = generateColors(allClusters.length);
+
+      const traces = allClusters.map((cid, idx)=>{
+        const rowsIdx = [];
+        materialsData.forEach((r,i)=>{ if(r.cluster===cid) rowsIdx.push(i); });
+        const xs = rowsIdx.map(i=> umapData[i]?.x ?? 0);
+        const ys = rowsIdx.map(i=> umapData[i]?.y ?? 0);
+        const mats = rowsIdx.map(i=> materialsData[i]);
+        const sizes = mats.map(d => Math.max(8, isFinite(d["Tc (K)"]) ? Number(d["Tc (K)"])/8 : 8));
+        baseSizesByCluster.set(cid, sizes);
+
+        return {
+          x: xs, y: ys,
+          mode:'markers', type:'scattergl',
+          name: cid===-1 ? 'Cluster -1 (Noise)' : `Cluster ${cid}`,
+          marker:{
+            color: cid===-1 ? COLOR_NOISE : palette[idx%palette.length],
+            size: sizes, opacity: cid===-1 ? 0.6 : 0.85, line:{color:'#fff', width:0.4}
+          },
+          text: mats.map(d=>`${d.formula}<br>Tc: ${isFinite(d["Tc (K)"])? d["Tc (K)"] : 'N/A'} K`),
+          hovertemplate: '%{text}<extra></extra>',
+          customdata: mats.map(d=>cid)
+        };
+      });
+
+      const layout = {
+        title:'Clustering of Superconductors',
+        xaxis:{ title:'UMAP-1' }, yaxis:{ title:'UMAP-2' },
+        hovermode:'closest', showlegend:true,
+        legend:{ title:{text:'Clusters'} },
+        margin:{ t:40, l:50, r:18, b:45 },
+        uirevision:'keep'
+      };
+      Plotly.newPlot(plotId, traces, layout, {responsive:true});
+
+      const gd = el(plotId);
+
+      // legend single-click → select (pulse, no isolate)
+      gd.on('plotly_legendclick', ev=>{
+        const idx = ev.curveNumber;
+        const cid = parseClusterIdFromName(gd.data[idx].name);
+        if(cid==null) return false;
+        if(pulsingClusterId===cid){
+          stopPulse();
+          clearSelectionUI();
+        }else{
+          selectCluster(cid, { isolate:false });
+        }
+        return false; // prevent default hide/show
+      });
+
+      // legend double-click → isolate
+      gd.on('plotly_legenddoubleclick', ev=>{
+        const idx = ev.curveNumber;
+        const cid = parseClusterIdFromName(gd.data[idx].name);
+        if(cid==null) return false;
+        selectCluster(cid, { isolate:true });
+        return false;
+      });
+
+      // emulate point double-click
+      let last = {cid:null, t:0};
+      gd.on('plotly_click', ev=>{
+        const cid = ev.points?.[0]?.customdata;
+        const now = Date.now();
+        if(last.cid===cid && (now-last.t)<350){
+          selectCluster(cid, { isolate:true });
+        }else{
+          if(isolatedClusterId==null){
+            selectCluster(cid, { isolate:false });
+          }
+        }
+        last = {cid, t:now};
+      });
+    }
+
+    function parseClusterIdFromName(name){
+      if(!name) return null;
+      if(name.includes('(Noise)')) return -1;
+      const m = name.match(/Cluster\s+(-?\d+)/i);
+      return m ? Number(m[1]) : null;
+    }
+    function generateColors(n){
+      const base=['#1f77b4','#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf'];
+      const out=[...base]; while(out.length<n){ out.push(`hsl(${Math.random()*360},70%,50%)`); } return out.slice(0,n);
+    }
+
+    async function selectCluster(cid, { isolate } = { isolate:true }){
+      selectedCluster = cid;
+      highlightBar(cid);
+
+      if(isolate){
+        await isolateCluster(cid);
+      }else{
+        if(isolatedClusterId!=null) resetIsolation();
+        startPulse(cid);
+      }
+      await Promise.all([loadClusterTableJSON(cid), loadClusterAnalysis(cid)]);
+    }
+
+    function startPulse(cid){
+  stopPulse();
+  const gd = el('umap-plot');
+
+  // Freeze axes so the scene won’t jiggle while sizes change
+  lockAxesForPulse(gd);
+
+  const traceIndex = gd.data.findIndex(tr=>parseClusterIdFromName(tr.name)===cid);
+  if(traceIndex<0) return;
+  pulsingClusterId = cid;
+  const base = baseSizesByCluster.get(cid); if(!base) return;
+
+  let phase=0;
+  pulseTimer = setInterval(()=>{
+    phase += 0.35;
+    const scale = 1.0 + 0.5*Math.sin(phase);
+    const newSizes = base.map(v=>v*scale);
+    Plotly.restyle(gd, {'marker.size':[newSizes]}, [traceIndex]);
+  }, 120);
+}
+
+function stopPulse(){
+  if(pulseTimer){ clearInterval(pulseTimer); pulseTimer=null; }
+  if(pulsingClusterId==null) return;
+
+  const gd = el('umap-plot');
+  const traceIndex = gd.data.findIndex(tr=>parseClusterIdFromName(tr.name)===pulsingClusterId);
+  const base = baseSizesByCluster.get(pulsingClusterId);
+
+  // Restore original sizes for the selected trace
+  if(traceIndex>=0 && base){
+    Plotly.restyle(gd, {'marker.size':[base]}, [traceIndex]);
+  }
+  pulsingClusterId = null;
+
+  // Unfreeze axes now that pulsing is done
+  unlockAxesForPulse(gd);
+}
+
+    async function isolateCluster(cid){
+      stopPulse();
+      isolatedClusterId = cid;
+
+      const gd = el('umap-plot');
+      const vis = gd.data.map(()=> 'legendonly');
+      const idx = gd.data.findIndex(tr=>parseClusterIdFromName(tr.name)===cid);
+      if(idx<0) return;
+      vis[idx] = true;
+      Plotly.restyle(gd, {'visible': vis});
+
+      const xs = gd.data[idx].x, ys = gd.data[idx].y;
+      const padX = (Math.max(...xs)-Math.min(...xs))*0.05 || 1;  // 5% margin on X
+      const padY = (Math.max(...ys)-Math.min(...ys))*0.05 || 1;  // matched 5% on Y for balance
+      Plotly.relayout(gd, {
+        'xaxis.range':[Math.min(...xs)-padX, Math.max(...xs)+padX],
+        'yaxis.range':[Math.min(...ys)-padY, Math.max(...ys)+padY]
+      });
+    }
+
+    function resetIsolation(){
+      const gd = el('umap-plot');
+      Plotly.restyle(gd, {'visible': true});
+      Plotly.relayout(gd, {'xaxis.autorange': true, 'yaxis.autorange': true});
+      isolatedClusterId = null;
+    }
+
+    function clearSelectionUI(){
+      selectedCluster = null;
+      highlightBar(null);
+      el('cluster-table-title').textContent = 'Select a cluster to view compounds';
+      el('cluster-table').innerHTML = '';
+      const dl = el('cluster-table-download'); dl.style.display='none'; dl.onclick=null;
+      el('analysis-title').textContent = 'Cluster analysis';
+      el('analysis-content').innerHTML = '<p>Select via <strong>bar chart (single-click)</strong>, <strong>legend (single/double-click)</strong>, or <strong>point (double-click)</strong>.</p>';
+    }
+
+    async function loadClusterTableJSON(cid){
+      const title = el('cluster-table-title');
+      const wrap  = el('cluster-table');
+      wrap.innerHTML = '';
+
+      let rows=[];
+      try{
+        rows = await loadJSON(`clusters/cluster${cid}.json`);
+        if(!Array.isArray(rows)) throw new Error('Cluster JSON must be an array of objects');
+      }catch(e){
+        wrap.innerHTML = '<div style="padding:10px;color:#ef4444">Cluster JSON not found.</div>';
+        title.textContent = `Cluster ${cid}: (no JSON found)`;
+        return;
+      }
+      if(!rows.length){ wrap.innerHTML = '<div style="padding:10px;color:#6b7280">No rows.</div>'; return; }
+
+      const cols = [...new Set(rows.flatMap(r=>Object.keys(r)))];
+      const thead = `<thead><tr>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead>`;
+      const tbody = `<tbody>${rows.map(r=>`<tr>${cols.map(c=>`<td title="${String(r[c])}">${String(r[c])}</td>`).join('')}</tr>`).join('')}</tbody>`;
+      wrap.innerHTML = `<table>${thead}${tbody}</table>`;
+      title.textContent = `Cluster ${cid} — ${rows.length} compounds`;
+
+      const dl = el('cluster-table-download');
+      dl.style.display = 'inline-block';
+      dl.onclick = ()=>{ window.open(`clusters/cluster${cid}.json`, '_blank'); };
+    }
+
+    async function loadClusterAnalysis(cid){
+      const cont = el('analysis-content');
+      const title = el('analysis-title');
+      title.textContent = `Cluster ${cid} analysis`;
+
+      try{
+        const aj = await loadJSON(`analyses/cluster${cid}_analysis.json`);
+        const md = aj.markdown ?? '';
+        if(md.trim().length){ cont.innerHTML = renderMarkdown(md); return; }
+      }catch(e){}
+      try{
+        const md = await fetchText(`analyses/cluster${cid}_analysis.md`);
+        cont.innerHTML = renderMarkdown(md);
+        return;
+      }catch(e){}
+
+      const st = clusterStats[cid];
+      const md = `### Summary (auto)
+- Compounds: **${st?.count ?? 'N/A'}**
+- Avg Tc: **${isFinite(st?.avgTc)? st.avgTc.toFixed(1)+' K' : 'N/A'}**
+- Max Tc: **${isFinite(st?.maxTc)? st.maxTc.toFixed(1)+' K' : 'N/A'}**
+
+_No saved analysis found. Provide \`analyses/cluster${cid}_analysis.json\` (with \`markdown\`) or \`analyses/cluster${cid}_analysis.md\`._`;
+      cont.innerHTML = renderMarkdown(md);
+    }
+
+    // Reset button (now on bar chart panel)
+    function wireReset(){ el('reset-btn').addEventListener('click', resetAll); }
+    function resetAll(){
+      stopPulse();
+      resetIsolation();
+      clearSelectionUI();
+      document.querySelectorAll('.metric-tabs button').forEach(b=>b.classList.remove('active'));
+      const btn = document.querySelector('.metric-tabs button[data-metric="count"]');
+      if(btn) btn.classList.add('active');
+      createStatsPlot('count');
+    }
+
+    (async function init(){
+      try{
+        const rawMaterials = await loadJSON('materials_data.json');
+        materialsData = normalizeMaterialsJSON(rawMaterials);
+      }catch(e){
+        materialsData = [
+          {formula:'YBa2Cu3O7', "Tc (K)":92, cluster:0},
+          {formula:'La2-xSrxCuO4', "Tc (K)":36, cluster:0},
+          {formula:'Nb3Sn', "Tc (K)":18, cluster:2},
+          {formula:'MgB2', "Tc (K)":39, cluster:3},
+          {formula:'FeSe', "Tc (K)":9, cluster:4},
+        ];
+      }
+      try{
+        const rawCoords = await loadJSON('umap_coordinates.json');
+        const coords = normalizeCoordsJSON(rawCoords);
+        umapData = materialsData.map((_,i)=> ({ x: coords[i]?.x ?? (Math.random()*10-5),
+                                                y: coords[i]?.y ?? (Math.random()*10-5),
+                                                cluster: materialsData[i].cluster }));
+      }catch(e){
+        umapData = materialsData.map(r=>({ x:Math.random()*10-5, y:Math.random()*10-5, cluster:r.cluster }));
+      }
+
+      computeClusterStats();
+      createStatsPlot('count');
+      createUmapPlot();
+      wireMetricTabs();
+      wireReset();
+    })();
+  </script>
+</body>
+</html>

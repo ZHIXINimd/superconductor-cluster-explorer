@@ -1,0 +1,322 @@
+[
+  {
+    "formula": "H1Pd1",
+    "Tc (K)": 51.6,
+    "cluster": 1
+  },
+  {
+    "formula": "Sm1Fe1As1H0.3O0.6",
+    "Tc (K)": 51.4,
+    "cluster": 1
+  },
+  {
+    "formula": "Sm1Fe1As1H0.12O0.77",
+    "Tc (K)": 54.2,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.6O0.6",
+    "Tc (K)": 35.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Ce1Fe1As1H0.6O0.6",
+    "Tc (K)": 45.8,
+    "cluster": 1
+  },
+  {
+    "formula": "Pr1Fe1As1H0.6O0.6",
+    "Tc (K)": 49.7,
+    "cluster": 1
+  },
+  {
+    "formula": "Ce1Fe1As1H0.07O0.93",
+    "Tc (K)": 31.3,
+    "cluster": 1
+  },
+  {
+    "formula": "Ce1Fe1As1H0.2O0.8",
+    "Tc (K)": 45.6,
+    "cluster": 1
+  },
+  {
+    "formula": "Ce1Fe1As1H0.3O0.7",
+    "Tc (K)": 44.9,
+    "cluster": 1
+  },
+  {
+    "formula": "Ce1Fe1As1H0.4O0.6",
+    "Tc (K)": 37.3,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.15",
+    "Tc (K)": 27.5,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.35",
+    "Tc (K)": 29.0,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.55",
+    "Tc (K)": 30.5,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.7",
+    "Tc (K)": 32.5,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.85",
+    "Tc (K)": 35.0,
+    "cluster": 1
+  },
+  {
+    "formula": "H1W1O3",
+    "Tc (K)": 120.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Ca0.9La0.1Fe1As1H1",
+    "Tc (K)": 28.2,
+    "cluster": 1
+  },
+  {
+    "formula": "Ca0.8La0.2Fe1As1H1",
+    "Tc (K)": 40.6,
+    "cluster": 1
+  },
+  {
+    "formula": "Ca0.7La0.3Fe1As1H1",
+    "Tc (K)": 35.7,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.08O0.92",
+    "Tc (K)": 28.7,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.3O0.7",
+    "Tc (K)": 38.0,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.46O0.54",
+    "Tc (K)": 36.2,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.24O0.76",
+    "Tc (K)": 30.1,
+    "cluster": 1
+  },
+  {
+    "formula": "Gd1Fe1As1H0.1O0.9",
+    "Tc (K)": 55.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Gd1Fe1As1H0.3O0.7",
+    "Tc (K)": 45.9,
+    "cluster": 1
+  },
+  {
+    "formula": "Sm1Fe1As1H0.066O0.934",
+    "Tc (K)": 43.3,
+    "cluster": 1
+  },
+  {
+    "formula": "Sm1Fe1As1H0.25O0.75",
+    "Tc (K)": 54.7,
+    "cluster": 1
+  },
+  {
+    "formula": "Sm1Fe1As1H0.4O0.6",
+    "Tc (K)": 46.4,
+    "cluster": 1
+  },
+  {
+    "formula": "Ce1Fe1As1H0.065O0.935",
+    "Tc (K)": 41.1,
+    "cluster": 1
+  },
+  {
+    "formula": "Ce1Fe1As1H0.22O0.78",
+    "Tc (K)": 48.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Ca1Fe0.93Co0.07As1H1",
+    "Tc (K)": 23.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Ca1Fe0.91Co0.09As1H1",
+    "Tc (K)": 22.7,
+    "cluster": 1
+  },
+  {
+    "formula": "Ca1Fe0.88Co0.12As1H1",
+    "Tc (K)": 23.2,
+    "cluster": 1
+  },
+  {
+    "formula": "Li0.8Fe1.2Se1H1O1",
+    "Tc (K)": 40.9,
+    "cluster": 1
+  },
+  {
+    "formula": "Li0.8Fe1.2Se0.84S0.16H1O1",
+    "Tc (K)": 38.6,
+    "cluster": 1
+  },
+  {
+    "formula": "Li0.8Fe1.2Se0.78S0.22H1O1",
+    "Tc (K)": 35.6,
+    "cluster": 1
+  },
+  {
+    "formula": "Li0.8Fe1.2Se0.72S0.28H1O1",
+    "Tc (K)": 35.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Li0.8Fe1.2Se0.59S0.41H1O1",
+    "Tc (K)": 32.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Li0.8Fe1.2Se0.47S0.53H1O1",
+    "Tc (K)": 24.2,
+    "cluster": 1
+  },
+  {
+    "formula": "Ce1Fe1As1H0.21O0.79",
+    "Tc (K)": 48.0,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.36O0.64",
+    "Tc (K)": 36.0,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.44O0.56",
+    "Tc (K)": 21.0,
+    "cluster": 1
+  },
+  {
+    "formula": "H2S1",
+    "Tc (K)": 60.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Ca1Fe1As1F0.8H0.2",
+    "Tc (K)": 29.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Sm1Fe1As1H0.19O0.81",
+    "Tc (K)": 55.3,
+    "cluster": 1
+  },
+  {
+    "formula": "Sm1Fe1As1H0.34O0.64",
+    "Tc (K)": 51.8,
+    "cluster": 1
+  },
+  {
+    "formula": "Sm1Fe1As1H0.43O0.57",
+    "Tc (K)": 45.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Ce1Fe0.93Co0.07As1H1",
+    "Tc (K)": 23.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Ce1Fe0.91Co0.09As1H1",
+    "Tc (K)": 23.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Ce1Fe0.88Co0.12As1H1",
+    "Tc (K)": 23.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Sm1Fe1As1H0.22O0.78",
+    "Tc (K)": 50.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Sm1Fe1As0.77P0.23H0.11O0.89",
+    "Tc (K)": 28.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Sm1Fe1As0.77P0.23H0.2O0.8",
+    "Tc (K)": 36.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Li0.8Fe1.2H1Se1",
+    "Tc (K)": 34.0,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.42O0.58",
+    "Tc (K)": 20.3,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.4O0.6",
+    "Tc (K)": 23.9,
+    "cluster": 1
+  },
+  {
+    "formula": "Li0.84H1Fe1.14Se1O1",
+    "Tc (K)": 42.0,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.58O0.58",
+    "Tc (K)": 32.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Li0.8Fe1.2H1Se1O1",
+    "Tc (K)": 40.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Li1.84H1Fe1.14Se1O1",
+    "Tc (K)": 40.5,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As1H0.3O0.3",
+    "Tc (K)": 35.0,
+    "cluster": 1
+  },
+  {
+    "formula": "La1Fe1As0.9P0.1H0.3O0.3",
+    "Tc (K)": 20.0,
+    "cluster": 1
+  },
+  {
+    "formula": "Li0.88Fe1.12Se1H1O1",
+    "Tc (K)": 40.0,
+    "cluster": 1
+  },
+  {
+    "formula": "H3S1",
+    "Tc (K)": 147.0,
+    "cluster": 1
+  }
+]

@@ -1,0 +1,197 @@
+[
+  {
+    "formula": "Yb1Fe4Al8",
+    "Tc (K)": 50.0,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca10Fe8.2Pt4.8As18",
+    "Tc (K)": 38.0,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca10Pt5.8Fe8.2As18",
+    "Tc (K)": 33.65,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca10Pt4.054Fe9.7As18",
+    "Tc (K)": 26.5,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca9.07La0.93Pt3Fe10As18",
+    "Tc (K)": 22.2,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.55La1.45Pt3Fe10As18",
+    "Tc (K)": 26.1,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.18La1.82Pt3Fe10As18",
+    "Tc (K)": 22.1,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca10Pt4Fe10As18",
+    "Tc (K)": 38.0,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca10Pt4.1Fe9.9As18",
+    "Tc (K)": 32.2,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca10Pt4.3Fe9.7As18",
+    "Tc (K)": 33.9,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca10Pt4.6Fe9.4As18",
+    "Tc (K)": 22.5,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8La2Pt3.3Fe9.7As18",
+    "Tc (K)": 29.4,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca10Pt4.2Fe9.8As18",
+    "Tc (K)": 30.0,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca9La1Pt3Fe10As18",
+    "Tc (K)": 27.9,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.87La1.13Pt3Fe10As18",
+    "Tc (K)": 32.8,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.85La1.15Pt3Fe10As18",
+    "Tc (K)": 35.1,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.6La1.4Pt3Fe10As18",
+    "Tc (K)": 34.5,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.44La1.56Pt3Fe10As18",
+    "Tc (K)": 32.3,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca7.62La2.38Pt3Fe10As18",
+    "Tc (K)": 26.0,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca9.26Ce0.74Pt3Fe10As18",
+    "Tc (K)": 22.6,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.38Ce1.62Pt3Fe10As18",
+    "Tc (K)": 30.5,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.32Ce1.68Pt3Fe10As18",
+    "Tc (K)": 30.4,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.77Pr1.23Pt3Fe10As18",
+    "Tc (K)": 26.9,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.48Pr1.52Pt3Fe10As18",
+    "Tc (K)": 31.8,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.03Pr1.97Pt3Fe10As18",
+    "Tc (K)": 25.0,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca6.85Pr3.15Pt3Fe10As18",
+    "Tc (K)": 20.5,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.77Nd1.23Pt3Fe10As18",
+    "Tc (K)": 28.4,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.41Nd1.59Pt3Fe10As18",
+    "Tc (K)": 28.1,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca9.29Sm0.71Pt3Fe10As18",
+    "Tc (K)": 26.2,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.45Sm1.55Pt3Fe10As18",
+    "Tc (K)": 28.0,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca9.06Gd0.94Pt3Fe10As18",
+    "Tc (K)": 25.0,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca9.16Tb0.84Pt3Fe10As18",
+    "Tc (K)": 23.7,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca9.35Dy0.65Pt3Fe10As18",
+    "Tc (K)": 20.9,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.5La1.5Pt3Fe10As18",
+    "Tc (K)": 34.0,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.9La1.1Pt3Fe10As18",
+    "Tc (K)": 23.3,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca8.2La1.8Pt3Fe10As18",
+    "Tc (K)": 21.9,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca9.1La0.9Pt3Fe10As18",
+    "Tc (K)": 22.2,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca3Ir3.64Co0.36Sn13",
+    "Tc (K)": 75.0,
+    "cluster": 11
+  },
+  {
+    "formula": "Ca10Pt4.5Fe9.5As18",
+    "Tc (K)": 32.0,
+    "cluster": 11
+  }
+]

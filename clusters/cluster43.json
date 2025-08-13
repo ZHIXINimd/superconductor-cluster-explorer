@@ -1,0 +1,332 @@
+[
+  {
+    "formula": "Pb0.7Hg0.3Sr2Nd0.3Ca0.7Cu2O6.6",
+    "Tc (K)": 90.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Bi0.33Hg0.67Sr2Y1Cu2O7",
+    "Tc (K)": 74.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Bi0.33Hg0.67Sr2Y0.5Ca0.5Cu2O7",
+    "Tc (K)": 92.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Pb2Sr2Ho0.5Ca0.5Cu2.94Pt0.06O8",
+    "Tc (K)": 80.4,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.8V0.2Ba2Ca1Cu2O6.3",
+    "Tc (K)": 115.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.8Mo0.2Ba2Ca1Cu2O6.4",
+    "Tc (K)": 127.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.8W0.2Ba2Ca1Cu2O6.4",
+    "Tc (K)": 118.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.9W0.1Ba2Ca1Cu2O6.2",
+    "Tc (K)": 118.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.8Ti0.2Ba2Ca1Cu2O6.2",
+    "Tc (K)": 127.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.8V0.2Ba2Ca2Cu3O8.3",
+    "Tc (K)": 120.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.8Mo0.2Ba2Ca2Cu3O8.4",
+    "Tc (K)": 129.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.6Ti0.4Ba2Ca2Cu3O8.4",
+    "Tc (K)": 128.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.8Bi0.2Ba2Ca2Cu3O8.2",
+    "Tc (K)": 130.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.5Pb0.5Ba2Ca4Cu5O12.5",
+    "Tc (K)": 110.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.9Pb0.1Ba2Ca2Cu3O8.25",
+    "Tc (K)": 118.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.8Pb0.2Ba2Ca2Cu3O8.3",
+    "Tc (K)": 125.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.7Pb0.3Ba2Ca2Cu3O8.35",
+    "Tc (K)": 130.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.6Pb0.4Ba2Ca2Cu3O8.4",
+    "Tc (K)": 120.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.5Pb0.5Ba2Ca2Cu3O8.45",
+    "Tc (K)": 103.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.66Pb0.34Ba2Ca1.98Cu2.9O8.4",
+    "Tc (K)": 143.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Pb0.5Cd0.5Sr1.6Ba0.4Ca0.5Y0.5Cu2O7",
+    "Tc (K)": 36.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Pb0.5Cd0.5Sr1.5Ba0.5Ca0.5Y0.5Cu2O7",
+    "Tc (K)": 49.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.65V0.35Sr2Ca0.55Nd0.45Cu2O6.8",
+    "Tc (K)": 67.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.75Ba2.07Ca2.07Cu3.11O8.136",
+    "Tc (K)": 132.9,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.75Ba2.07Ca2.07Cu3.11O8.15",
+    "Tc (K)": 134.7,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.75Ba2.07Ca2.07Cu3.11O8.16",
+    "Tc (K)": 134.2,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.75Ba2.07Ca2.07Cu3.11O8.187",
+    "Tc (K)": 135.4,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.75Ba2.07Ca2.07Cu3.11O8.208",
+    "Tc (K)": 135.8,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.75Ba2.07Ca2.07Cu3.11O8.223",
+    "Tc (K)": 133.4,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.8Bi0.2Sr2Ca2Cu3O8.35",
+    "Tc (K)": 102.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.7Bi0.3Sr2Ca2Cu3O8.35",
+    "Tc (K)": 107.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.5Bi0.5Sr2Ca2Cu3O8.35",
+    "Tc (K)": 107.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.7Bi0.3Sr2Ca2Cu3O8.15",
+    "Tc (K)": 108.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.7Bi0.3Sr2Ca2Cu3O8.65",
+    "Tc (K)": 104.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.9Pb0.1Ba2Ca2Cu3O8",
+    "Tc (K)": 130.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.8Pb0.2Ba2Ca2Cu3O8",
+    "Tc (K)": 132.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg1.4Tl0.6Ba2Y0.9Ca0.1Cu2O7.88",
+    "Tc (K)": 37.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg1.4Tl0.6Ba2Y0.8Ca0.2Cu2O7.83",
+    "Tc (K)": 50.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg1.4Tl0.6Ba2Y0.7Ca0.3Cu2O7.81",
+    "Tc (K)": 74.5,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg1.4Tl0.6Ba2Y0.6Ca0.4Cu2O7.78",
+    "Tc (K)": 84.6,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg1.4Tl0.6Ba2Y0.5Ca0.5Cu2O7.74",
+    "Tc (K)": 84.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg1.4Tl0.6Ba2Y0.4Ca0.6Cu2O7.71",
+    "Tc (K)": 68.6,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg1.4Tl0.6Ba2Y0.3Ca0.7Cu2O7.68",
+    "Tc (K)": 66.4,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg1.4Tl0.6Ba2Y0.2Ca0.8Cu2O7.66",
+    "Tc (K)": 35.3,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg1Tl1Ba2Ca1Cu2O8",
+    "Tc (K)": 35.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg1Tl1Ba2Ca2Cu3O10",
+    "Tc (K)": 76.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg1Tl1Ba2Ca3Cu4O12",
+    "Tc (K)": 110.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg1Tl1Ba2Ca4Cu5O14",
+    "Tc (K)": 90.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.5Fe0.5Sr2Y0.8Ca0.2Cu2O6.72",
+    "Tc (K)": 30.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.5Fe0.5Sr2Y0.7Ca0.3Cu2O6.7",
+    "Tc (K)": 24.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.5Fe0.5Sr2Y0.6Ca0.4Cu2O6.7",
+    "Tc (K)": 46.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.5Fe0.5Sr2Y0.5Ca0.5Cu2O6.68",
+    "Tc (K)": 66.5,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.5Fe0.5Sr2Y0.4Ca0.6Cu2O6.67",
+    "Tc (K)": 77.5,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.5Fe0.5Sr2Y0.3Ca0.7Cu2O6.65",
+    "Tc (K)": 72.5,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.5Fe0.5Sr2Y0.2Ca0.8Cu2O6.63",
+    "Tc (K)": 63.5,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.8Mn0.2Ba2Ca1Cu2O6.2",
+    "Tc (K)": 114.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.8Ge0.2Ba2Ca1Cu2O6.2",
+    "Tc (K)": 124.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.8Nd0.2Ba2Ca2Cu3O8.3",
+    "Tc (K)": 128.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Bi1.7Pb0.3Sr2Ca0.55Y0.45Cu1.94Zn0.06O8",
+    "Tc (K)": 41.3,
+    "cluster": 43
+  },
+  {
+    "formula": "Bi1.7Pb0.3Sr2Ca0.6Y0.4Cu1.94Zn0.06O8",
+    "Tc (K)": 53.5,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.85Re0.15Ba2Ca2Cu3O8",
+    "Tc (K)": 132.9,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.85Re0.15Ba1.66Sr0.34Ca2Cu3O8",
+    "Tc (K)": 131.3,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.85Re0.15Ba1.6Sr0.4Ca2Cu3O8",
+    "Tc (K)": 130.3,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.85Re0.15Ba1.44Sr0.56Ca2Cu3O8",
+    "Tc (K)": 128.7,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.4Pr1.1Sr2Ca0.5Cu2O7.9",
+    "Tc (K)": 76.0,
+    "cluster": 43
+  },
+  {
+    "formula": "Hg0.4Pr1.1Sr2Ca0.5Cu2O6.9",
+    "Tc (K)": 60.0,
+    "cluster": 43
+  }
+]

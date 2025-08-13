@@ -1,0 +1,277 @@
+[
+  {
+    "formula": "Y1Ba2.01Cu2.7Co0.3O6.8",
+    "Tc (K)": 36.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.841Co0.159O6.8",
+    "Tc (K)": 54.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.98Co0.02O6.9",
+    "Tc (K)": 93.4,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.95Co0.05O6.92",
+    "Tc (K)": 94.3,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.9Co0.1O6.82",
+    "Tc (K)": 73.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.8Co0.2O6.83",
+    "Tc (K)": 53.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.7Co0.3O6.88",
+    "Tc (K)": 22.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.8Co0.2O7.04",
+    "Tc (K)": 53.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.97Co0.03O6.96",
+    "Tc (K)": 92.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.925Co0.075O6.97",
+    "Tc (K)": 92.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.85Co0.15O7.03",
+    "Tc (K)": 65.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.775Co0.225O6.99",
+    "Tc (K)": 58.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.7Co0.3O7.11",
+    "Tc (K)": 36.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.95Co0.05O6.88",
+    "Tc (K)": 91.2,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.9Co0.1O6.89",
+    "Tc (K)": 55.3,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.89Co0.11O7",
+    "Tc (K)": 64.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.82Co0.18O7",
+    "Tc (K)": 46.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.96Co0.04O8",
+    "Tc (K)": 62.5,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.92Co0.08O8",
+    "Tc (K)": 50.6,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.85Co0.15O6.92",
+    "Tc (K)": 71.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.98Ni0.02O8",
+    "Tc (K)": 67.1,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.96Ni0.04O8",
+    "Tc (K)": 53.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.92Ni0.08O8",
+    "Tc (K)": 25.1,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.79Co0.21O7",
+    "Tc (K)": 22.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.98Co0.02O8",
+    "Tc (K)": 73.3,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.88Co0.12O8",
+    "Tc (K)": 58.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.84Co0.16O8",
+    "Tc (K)": 54.3,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.8Co0.2O8",
+    "Tc (K)": 50.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.88Ni0.12O8",
+    "Tc (K)": 50.0,
+    "cluster": 28
+  },
+  {
+    "formula": "La1Ba2Cu2.95Co0.05O6.94",
+    "Tc (K)": 40.5,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.99Ni0.01O8",
+    "Tc (K)": 78.4,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.97Ni0.03O8",
+    "Tc (K)": 70.4,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.939Ni0.061O8",
+    "Tc (K)": 63.5,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.9Ni0.1O8",
+    "Tc (K)": 52.6,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.8Ni0.2O8",
+    "Tc (K)": 21.0,
+    "cluster": 28
+  },
+  {
+    "formula": "La1Ba1Cu2.94Co0.06O7",
+    "Tc (K)": 57.0,
+    "cluster": 28
+  },
+  {
+    "formula": "La1Ba1Cu2.88Co0.12O7",
+    "Tc (K)": 40.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.964Ni0.036O8",
+    "Tc (K)": 63.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.88Co0.12O7",
+    "Tc (K)": 81.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.75Co0.25O7.06",
+    "Tc (K)": 66.2,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba1.95Cu2.95Co0.05O7",
+    "Tc (K)": 90.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba1.9Cu2.9Co0.1O7.02",
+    "Tc (K)": 89.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba1.85Cu2.85Co0.15O7.04",
+    "Tc (K)": 79.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba1.8Cu2.8Co0.2O7.05",
+    "Tc (K)": 70.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba1.75Cu2.75Co0.25O7.06",
+    "Tc (K)": 63.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba1.95Cu2.95Co0.05O6.9",
+    "Tc (K)": 70.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba1.9Cu2.9Co0.1O6.92",
+    "Tc (K)": 66.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba1.85Cu2.85Co0.15O6.94",
+    "Tc (K)": 55.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba1.8Cu2.8Co0.2O6.95",
+    "Tc (K)": 43.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba1.75Cu2.75Co0.25O6.95",
+    "Tc (K)": 25.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu3.996Ni0.004O8",
+    "Tc (K)": 78.0,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.96Co0.04O7",
+    "Tc (K)": 91.5,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.94Co0.06O7",
+    "Tc (K)": 78.3,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.76Co0.24O6.999",
+    "Tc (K)": 50.7,
+    "cluster": 28
+  },
+  {
+    "formula": "Y1Ba2Cu2.64Co0.36O7.03",
+    "Tc (K)": 22.0,
+    "cluster": 28
+  }
+]

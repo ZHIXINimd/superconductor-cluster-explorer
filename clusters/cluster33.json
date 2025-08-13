@@ -1,0 +1,77 @@
+[
+  {
+    "formula": "Y1Ba2Cu2.97Ga0.03O7",
+    "Tc (K)": 90.88,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.94Ga0.06O7",
+    "Tc (K)": 87.99,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.91Ga0.09O7",
+    "Tc (K)": 83.71,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.88Ga0.12O7",
+    "Tc (K)": 79.89,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.85Ga0.15O7",
+    "Tc (K)": 78.49,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.82Ga0.18O7",
+    "Tc (K)": 79.24,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.79Ga0.21O7",
+    "Tc (K)": 76.91,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.76Ga0.24O7",
+    "Tc (K)": 71.79,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.73Ga0.27O7",
+    "Tc (K)": 67.04,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.61Ga0.39O7",
+    "Tc (K)": 64.8,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.55Ga0.45O7",
+    "Tc (K)": 65.36,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.7Ga0.3O6.93",
+    "Tc (K)": 75.0,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.7In0.3O6.9",
+    "Tc (K)": 90.0,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.95Ga0.05O6.69",
+    "Tc (K)": 88.0,
+    "cluster": 33
+  },
+  {
+    "formula": "Y1Ba2Cu2.9Ga0.1O6.8",
+    "Tc (K)": 81.0,
+    "cluster": 33
+  }
+]
