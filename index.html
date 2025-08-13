@@ -403,7 +403,7 @@ function unlockAxesForPulse(gd){
   let phase=0;
   pulseTimer = setInterval(()=>{
     phase += 0.35;
-    const scale = 1.0 + 0.25*Math.sin(phase);
+    const scale = 1.0 + 0.7*Math.sin(phase);
     const newSizes = base.map(v=>v*scale);
     Plotly.restyle(gd, {'marker.size':[newSizes]}, [traceIndex]);
   }, 120);
