@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <title>Superconductor Cluster Explorer (JSON)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.26.0/plotly.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.2/marked.min.js"></script>
   <style>
@@ -14,8 +14,10 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial;
-         color:var(--ink); background:#f7f8fb; cursor:pointer;}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial;
+      color:var(--ink); background:#f7f8fb; cursor:pointer;
+    }
 
     .header{padding:20px 24px; color:#fff; background:linear-gradient(135deg,var(--brand) 0%,var(--brand2) 100%); box-shadow:var(--shadow)}
     .header h1{margin:0 0 6px; font-size:22px; font-weight:700}
@@ -33,7 +35,7 @@
       padding:12px; height:100%; display:flex; flex-direction:column; position:relative
     }
 
-    /* Reset button NOW on bar-chart panel (top-right) */
+    /* Reset button on bar-chart panel (top-right) */
     .left-panel .reset-btn{
       position:absolute; top:10px; right:10px;
       background:#fff; border:1px solid var(--line); border-radius:10px; padding:.35rem .65rem;
@@ -41,47 +43,68 @@
     }
 
     .metric-tabs{display:flex; gap:8px; margin-bottom:8px; flex-wrap:wrap; padding-right:80px}
-    .metric-tabs button{border:1px solid var(--line); background:#fafbff; padding:6px 10px; border-radius:8px; font-size:12px; color:var(--muted)}
+    .metric-tabs button{border:1px solid var(--line); background:#fafbff; padding:6px 10px; border-radius:8px; font-size:12px; color:#666}
     .metric-tabs button.active{background:#eef2ff; color:#334155; border-color:#c7d2fe; font-weight:600}
     .plot-container{flex:1; min-height:0}
 
-    /* Bottom: table (left) + analysis (right) */
+    /* Bottom: table (left) + analysis (right at 2× width) */
     .bottom-container{
-      display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:12px;
-      /* no fixed height here; we give exact 50vh to inner scroll areas instead */
+      display:grid;
+      grid-template-columns: 1fr 2fr;         /* analysis is twice the table */
+      gap:12px; padding:12px;
     }
+    .bottom-container > .card{ min-width:0; }  /* let grid children shrink to fractions */
+
     .card{
       background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow);
       padding:12px; display:flex; flex-direction:column; min-height:0;
     }
     .card h3{margin:0 0 8px; font-size:16px; font-weight:700; color:#111827}
     .toolbar{display:flex; gap:8px; align-items:center; margin-bottom:8px}
-    .toolbar .hint{color:var(--muted); font-size:12px}
+    .toolbar .hint{color:#6b7280; font-size:12px}
 
     /* Equal-height scroll areas (exactly half viewport height) */
     .table-wrap, .md{
       height:50vh; overflow:auto; border:1px solid var(--line); border-radius:10px; background:#fff;
     }
 
-    /* Table styling */
-    table{width:100%; border-collapse:collapse; font-size:12.5px; background:#fff}
-    th,td{border-bottom:1px solid var(--line); padding:6px 8px; text-align:left; white-space:nowrap}
+    /* Table styling (compounds) */
+    table{width:100%; border-collapse:collapse; font-size:12.5px; background:#fff; table-layout:fixed}
+    th,td{border-bottom:1px solid var(--line); padding:6px 8px; text-align:left; white-space:normal; word-break:break-word; overflow-wrap:anywhere}
     th{position:sticky; top:0; background:#f9fafb; z-index:1}
 
-    /* Markdown styling */
+    /* Markdown styling (wrap within its box) */
     .md{padding:12px}
     .md h1,.md h2,.md h3{margin:.4em 0 .25em; line-height:1.2}
     .md h1{font-size:18px} .md h2{font-size:16px} .md h3{font-size:14px}
-    .md p{margin:.4em 0} .md ul{margin:.4em 0 .4em 1.2em}
-    .md table{border-collapse:collapse; width:100%; font-size:12.5px}
-    .md th,.md td{border:1px solid var(--line); padding:6px 8px}
+    .md p{
+    margin:.4em 0;
+    font-size:11.5px;   /* ← set your paragraph size here */
+    line-height:1.45;   /* optional: nicer readability */
+  }
+    .md ul{margin:.4em 0 .4em 1.2em}
+    /* Make list items the same size as paragraphs */
+#analysis-content ul li,
+#analysis-content ol li,
+#analysis-content li p{
+  font-size:11.5px;   /* ← keep in sync with .md p */
+  line-height:1.45;
+}
+    .md img{max-width:100%; height:auto}
+    .md table{border-collapse:collapse; width:100%; table-layout:fixed; font-size:12.5px}
+    .md th,.md td{border:1px solid var(--line); padding:6px 8px; white-space:normal; word-break:break-word; overflow-wrap:anywhere}
+    .md pre,.md code{white-space:pre-wrap; word-break:break-word; overflow-wrap:anywhere}
     .md blockquote{border-left:3px solid #e5e7eb; margin:.4em 0; padding:.2em .8em; color:#4b5563; background:#fafafa}
 
     .no-select{user-select:none}
 
-    @media (max-width:1100px){
+    /* Orientation-aware layout (ignore resolution) */
+    @media (orientation: portrait){
       .top-container{grid-template-columns:1fr}
-      .bottom-container{grid-template-columns:1fr}
+      .bottom-container{grid-template-columns:1fr}  /* stack; analysis full width */
+      /* give plots a square-ish height to avoid “flat” look */
+      .plot-container{flex:none; height:min(92vw, 80vh)}
+      .left-panel, .panel-scatter{height:auto}
     }
   </style>
 </head>
@@ -93,7 +116,7 @@
 
   <div class="page">
     <div class="top-container">
-      <!-- LEFT: BAR CHART (with Reset button now) -->
+      <!-- LEFT: BAR CHART (with Reset button) -->
       <div class="left-panel no-select">
         <button id="reset-btn" class="reset-btn" title="Reset view">Reset</button>
         <div class="metric-tabs">
@@ -222,7 +245,6 @@
       else { y = clusters.map(c=>clusterStats[c].count); title='Materials Count per Cluster'; yTitle='Number of Materials'; }
 
       const colors = clusters.map(()=> COLOR_ROYAL);
-
       const trace = { x: clusters, y, type:'bar', marker:{ color: colors }, name:'Clusters' };
       const layout = {
         title, font:{size:12},
@@ -253,37 +275,30 @@
     }
 
     function lockAxesForPulse(gd){
-  // Use full layout ranges (reflect current view incl. zoom/pan)
-  const xr = (gd._fullLayout?.xaxis?.range || gd.layout?.xaxis?.range || []).slice();
-  const yr = (gd._fullLayout?.yaxis?.range || gd.layout?.yaxis?.range || []).slice();
-  if (!xr.length || !yr.length) return; // nothing to lock yet
-
-  // Remember prior autorange state so we can restore
-  gd._axisLockForPulse = {
-    wasAutoX: gd.layout?.xaxis?.autorange !== false,
-    wasAutoY: gd.layout?.yaxis?.autorange !== false,
-    xr, yr
-  };
-
-  Plotly.relayout(gd, {
-    'xaxis.autorange': false,
-    'yaxis.autorange': false,
-    'xaxis.range': xr,
-    'yaxis.range': yr
-  });
-}
-
-function unlockAxesForPulse(gd){
-  const s = gd._axisLockForPulse;
-  if(!s) return;
-  // Restore autorange flags, but do NOT force a new range;
-  // this keeps the user’s current zoom/pan.
-  Plotly.relayout(gd, {
-    'xaxis.autorange': s.wasAutoX,
-    'yaxis.autorange': s.wasAutoY
-  });
-  gd._axisLockForPulse = null;
-}
+      const xr = (gd._fullLayout?.xaxis?.range || gd.layout?.xaxis?.range || []).slice();
+      const yr = (gd._fullLayout?.yaxis?.range || gd.layout?.yaxis?.range || []).slice();
+      if (!xr.length || !yr.length) return;
+      gd._axisLockForPulse = {
+        wasAutoX: gd.layout?.xaxis?.autorange !== false,
+        wasAutoY: gd.layout?.yaxis?.autorange !== false,
+        xr, yr
+      };
+      Plotly.relayout(gd, {
+        'xaxis.autorange': false,
+        'yaxis.autorange': false,
+        'xaxis.range': xr,
+        'yaxis.range': yr
+      });
+    }
+    function unlockAxesForPulse(gd){
+      const s = gd._axisLockForPulse;
+      if(!s) return;
+      Plotly.relayout(gd, {
+        'xaxis.autorange': s.wasAutoX,
+        'yaxis.autorange': s.wasAutoY
+      });
+      gd._axisLockForPulse = null;
+    }
 
     function createUmapPlot(){
       const plotId='umap-plot';
@@ -389,43 +404,42 @@ function unlockAxesForPulse(gd){
     }
 
     function startPulse(cid){
-  stopPulse();
-  const gd = el('umap-plot');
+      stopPulse();
+      const gd = el('umap-plot');
 
-  // Freeze axes so the scene won’t jiggle while sizes change
-  lockAxesForPulse(gd);
+      // Freeze axes so the scene won’t jiggle while sizes change
+      lockAxesForPulse(gd);
 
-  const traceIndex = gd.data.findIndex(tr=>parseClusterIdFromName(tr.name)===cid);
-  if(traceIndex<0) return;
-  pulsingClusterId = cid;
-  const base = baseSizesByCluster.get(cid); if(!base) return;
+      const traceIndex = gd.data.findIndex(tr=>parseClusterIdFromName(tr.name)===cid);
+      if(traceIndex<0) return;
+      pulsingClusterId = cid;
+      const base = baseSizesByCluster.get(cid); if(!base) return;
 
-  let phase=0;
-  pulseTimer = setInterval(()=>{
-    phase += 0.35;
-    const scale = 1.0 + 0.7*Math.sin(phase);
-    const newSizes = base.map(v=>v*scale);
-    Plotly.restyle(gd, {'marker.size':[newSizes]}, [traceIndex]);
-  }, 120);
-}
+      let phase=0;
+      pulseTimer = setInterval(()=>{
+        phase += 0.35;
+        const scale = 1.0 + 0.8*Math.sin(phase);
+        const newSizes = base.map(v=>v*scale);
+        Plotly.restyle(gd, {'marker.size':[newSizes]}, [traceIndex]);
+      }, 120);
+    }
 
-function stopPulse(){
-  if(pulseTimer){ clearInterval(pulseTimer); pulseTimer=null; }
-  if(pulsingClusterId==null) return;
+    function stopPulse(){
+      if(pulseTimer){ clearInterval(pulseTimer); pulseTimer=null; }
+      if(pulsingClusterId==null) return;
 
-  const gd = el('umap-plot');
-  const traceIndex = gd.data.findIndex(tr=>parseClusterIdFromName(tr.name)===pulsingClusterId);
-  const base = baseSizesByCluster.get(pulsingClusterId);
+      const gd = el('umap-plot');
+      const traceIndex = gd.data.findIndex(tr=>parseClusterIdFromName(tr.name)===pulsingClusterId);
+      const base = baseSizesByCluster.get(pulsingClusterId);
 
-  // Restore original sizes for the selected trace
-  if(traceIndex>=0 && base){
-    Plotly.restyle(gd, {'marker.size':[base]}, [traceIndex]);
-  }
-  pulsingClusterId = null;
+      if(traceIndex>=0 && base){
+        Plotly.restyle(gd, {'marker.size':[base]}, [traceIndex]);
+      }
+      pulsingClusterId = null;
 
-  // Unfreeze axes now that pulsing is done
-  unlockAxesForPulse(gd);
-}
+      // Unfreeze axes now that pulsing is done
+      unlockAxesForPulse(gd);
+    }
 
     async function isolateCluster(cid){
       stopPulse();
@@ -439,8 +453,8 @@ function stopPulse(){
       Plotly.restyle(gd, {'visible': vis});
 
       const xs = gd.data[idx].x, ys = gd.data[idx].y;
-      const padX = (Math.max(...xs)-Math.min(...xs))*0.05 || 1;  // 5% margin on X
-      const padY = (Math.max(...ys)-Math.min(...ys))*0.05 || 1;  // matched 5% on Y for balance
+      const padX = (Math.max(...xs)-Math.min(...xs))*0.05 || 1;
+      const padY = (Math.max(...ys)-Math.min(...ys))*0.05 || 1;
       Plotly.relayout(gd, {
         'xaxis.range':[Math.min(...xs)-padX, Math.max(...xs)+padX],
         'yaxis.range':[Math.min(...ys)-padY, Math.max(...ys)+padY]
@@ -517,7 +531,7 @@ _No saved analysis found. Provide \`analyses/cluster${cid}_analysis.json\` (with
       cont.innerHTML = renderMarkdown(md);
     }
 
-    // Reset button (now on bar chart panel)
+    // Reset button
     function wireReset(){ el('reset-btn').addEventListener('click', resetAll); }
     function resetAll(){
       stopPulse();
